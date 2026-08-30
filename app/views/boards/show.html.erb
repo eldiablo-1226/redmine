@@ -60,7 +60,8 @@
 </table>
 <span class="pagination"><%= pagination_links_full @topic_pages, @topic_count %></span>
 <% else %>
-<p class="nodata"><%= l(:label_no_data) %></p>
+<%= nodata_tag((link_to(l(:label_message_new), new_board_message_path(@board),
+                       :onclick => 'showAndScrollTo("add-message", "message_subject"); return false;') if User.current.allowed_to?(:add_messages, @board.project))) %>
 <% end %>
 
 <% other_formats_links do |f| %>

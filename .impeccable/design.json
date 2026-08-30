@@ -1,0 +1,650 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-30T16:30:00Z",
+  "title": "Design System: Redmine",
+  "extensions": {
+    "colorMeta": {
+      "canvas": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "darkValue": "#191919",
+        "tonalRamp": [
+          "#0d0d0c",
+          "#1f1e1c",
+          "#37352f",
+          "#4a4741",
+          "#615d59",
+          "#9b968f",
+          "#d6d3ce",
+          "#e6e4e1"
+        ]
+      },
+      "canvas-soft": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#f7f7f5",
+        "darkValue": "#202020"
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface",
+        "canonical": "#ffffff",
+        "darkValue": "#202020"
+      },
+      "surface-sunken": {
+        "role": "neutral",
+        "displayName": "Sunken",
+        "canonical": "#f1f0ee",
+        "darkValue": "#262626"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1f1e1c",
+        "darkValue": "#e4e2df"
+      },
+      "ink-strong": {
+        "role": "neutral",
+        "displayName": "Ink Strong",
+        "canonical": "#0d0d0c",
+        "darkValue": "#f5f3f0"
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "#37352f",
+        "darkValue": "#d0cdc8"
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "#615d59",
+        "darkValue": "#9b9893"
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Ink Faint",
+        "canonical": "#6f6a64",
+        "darkValue": "#8f8b85"
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e6e4e1",
+        "darkValue": "#2f2f2e"
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Hairline Strong",
+        "canonical": "#d6d3ce",
+        "darkValue": "#3d3c3a"
+      },
+      "fill-subtle": {
+        "role": "neutral",
+        "displayName": "Row Hover Wash",
+        "canonical": "rgba(31, 30, 28, 0.03)",
+        "darkValue": "rgba(255, 255, 255, 0.035)"
+      },
+      "fill-hover": {
+        "role": "neutral",
+        "displayName": "Chrome Hover Wash",
+        "canonical": "rgba(31, 30, 28, 0.055)",
+        "darkValue": "rgba(255, 255, 255, 0.06)"
+      },
+      "fill-active": {
+        "role": "neutral",
+        "displayName": "Selected Wash",
+        "canonical": "rgba(31, 30, 28, 0.09)",
+        "darkValue": "rgba(255, 255, 255, 0.1)"
+      },
+      "primary": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#0075de",
+        "darkValue": "#1f6fbf",
+        "tonalRamp": [
+          "#005bab",
+          "#0075de",
+          "#0f80e0",
+          "#2b8ae5",
+          "#bcd9f6",
+          "#d7e8fa",
+          "#e8f2fd"
+        ]
+      },
+      "primary-hover": {
+        "role": "primary",
+        "displayName": "Signal Blue, pressed",
+        "canonical": "#005bab",
+        "darkValue": "#2b82d8"
+      },
+      "primary-soft": {
+        "role": "primary",
+        "displayName": "Blue Wash",
+        "canonical": "#e8f2fd",
+        "darkValue": "rgba(35, 131, 226, 0.16)"
+      },
+      "primary-ring": {
+        "role": "primary",
+        "displayName": "Focus Ring",
+        "canonical": "rgba(0, 117, 222, 0.28)",
+        "darkValue": "rgba(35, 131, 226, 0.4)"
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Link Blue",
+        "canonical": "#0075de",
+        "darkValue": "#5aa5f0",
+        "note": "Deliberately a separate token from primary: it lightens in dark while the button fill darkens, so both stay above 4.5:1."
+      },
+      "on-primary": {
+        "role": "primary",
+        "displayName": "On Signal",
+        "canonical": "#ffffff",
+        "darkValue": "#ffffff"
+      },
+      "danger": {
+        "role": "secondary",
+        "displayName": "Clay Red",
+        "canonical": "#c1341b",
+        "darkValue": "#ff7369",
+        "tonalRamp": [
+          "#c1341b",
+          "#cb4526",
+          "#d9634a",
+          "#e8a294",
+          "#f0bcb1",
+          "#f7d7d0",
+          "#fbeae6"
+        ]
+      },
+      "danger-soft": {
+        "role": "secondary",
+        "displayName": "Clay Wash",
+        "canonical": "#fbeae6",
+        "darkValue": "rgba(255, 115, 105, 0.14)"
+      },
+      "success": {
+        "role": "secondary",
+        "displayName": "Field Green",
+        "canonical": "#1a8a45",
+        "darkValue": "#4dab6d",
+        "tonalRamp": [
+          "#146633",
+          "#1a8a45",
+          "#1f9a4d",
+          "#8ccba4",
+          "#b2dcc2",
+          "#cfe9d8",
+          "#e6f4ea"
+        ]
+      },
+      "success-soft": {
+        "role": "secondary",
+        "displayName": "Field Wash",
+        "canonical": "#e6f4ea",
+        "darkValue": "rgba(77, 171, 109, 0.14)"
+      },
+      "warning": {
+        "role": "secondary",
+        "displayName": "Amber Bark",
+        "canonical": "#9a5b06",
+        "darkValue": "#d9a441",
+        "tonalRamp": [
+          "#9a5b06",
+          "#a86c08",
+          "#c07f10",
+          "#e8bd6b",
+          "#f0d296",
+          "#f7e3bd",
+          "#fbf1e0",
+          "#fdf7ea"
+        ]
+      },
+      "warning-soft": {
+        "role": "secondary",
+        "displayName": "Amber Wash",
+        "canonical": "#fbf1e0",
+        "darkValue": "rgba(217, 164, 65, 0.14)"
+      },
+      "purple": {
+        "role": "secondary",
+        "displayName": "Iris",
+        "canonical": "#6940a5",
+        "darkValue": "#a98bdb",
+        "tonalRamp": [
+          "#4a2c78",
+          "#6940a5",
+          "#8b46bd",
+          "#d3c2f0",
+          "#ddd1f4",
+          "#ece5f9",
+          "#f4f1fb"
+        ]
+      },
+      "purple-soft": {
+        "role": "secondary",
+        "displayName": "Iris Wash",
+        "canonical": "#f2ecfb",
+        "darkValue": "rgba(169, 139, 219, 0.14)"
+      },
+      "info": {
+        "role": "secondary",
+        "displayName": "Slate Blue",
+        "canonical": "#2a6fb0",
+        "darkValue": "#6fa8dc",
+        "note": "Declared in all three theme blocks as the informational accent; no component consumes it yet. Reserved rather than removed."
+      },
+      "info-soft": {
+        "role": "secondary",
+        "displayName": "Slate Wash",
+        "canonical": "#e9f1f9",
+        "darkValue": "rgba(111, 168, 220, 0.14)"
+      },
+      "avatar-hue": {
+        "role": "tertiary",
+        "displayName": "Avatar Hues",
+        "canonical": "#0075de",
+        "note": "Eight hues assigned deterministically by user id (user.id % 8). The chip ground is color-mix(in srgb, hue 20%, var(--nx-canvas)), so one class works in both themes.",
+        "tonalRamp": [
+          "#c1341b",
+          "#b45309",
+          "#8a6205",
+          "#1a8a45",
+          "#12797b",
+          "#0075de",
+          "#6940a5",
+          "#a12764"
+        ],
+        "darkRamp": [
+          "#ff8a7d",
+          "#e79b62",
+          "#d9a441",
+          "#5cbb7d",
+          "#56c1c1",
+          "#529ceb",
+          "#a98bdb",
+          "#eb8fc2"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The project title in the header and the h1 of any page. One per screen, over a 12px breadcrumb."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings, login card title, wiki h2."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Sub-section headings and the subject line inside a record panel."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Prose, descriptions, wiki content, form values. Inter with cv05 and ss03 enabled."
+      },
+      "dense": {
+        "displayName": "Dense",
+        "purpose": "The working size: tables, tabs, sidebar, contextual actions, journal headers. Most of the interface lives here."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Table headers, legends, sidebar section headings, badges, timestamps, the top bar. Sentence case, never uppercased."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "Code, diffs, revision identifiers, backup codes."
+      }
+    },
+    "fonts": [
+      {
+        "family": "Inter",
+        "role": "interface",
+        "weights": [
+          400,
+          500,
+          600,
+          700
+        ],
+        "styles": [
+          "normal",
+          "italic"
+        ],
+        "delivery": "self-hosted woff2, latin + cyrillic subsets, font-display: swap",
+        "features": "cv05, ss03"
+      },
+      {
+        "family": "Noto Sans",
+        "role": "fallback",
+        "weights": [
+          400,
+          700
+        ],
+        "delivery": "self-hosted woff2",
+        "purpose": "Fallback face for scripts Inter does not cover. Never chosen deliberately."
+      }
+    ],
+    "shadows": [
+      {
+        "name": "lift",
+        "value": "0 1px 2px rgba(15, 15, 15, 0.06)",
+        "darkValue": "0 1px 2px rgba(0, 0, 0, 0.4)",
+        "purpose": "The sticky issue header only: a page element that has become fixed."
+      },
+      {
+        "name": "float",
+        "value": "0 6px 18px rgba(15, 15, 15, 0.11), 0 0 0 1px rgba(15, 15, 15, 0.05)",
+        "darkValue": "0 6px 18px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06)",
+        "purpose": "Menus, dropdowns, the login card, the ajax indicator. Anything summoned above the page."
+      },
+      {
+        "name": "overlay",
+        "value": "0 14px 40px rgba(15, 15, 15, 0.16), 0 0 0 1px rgba(15, 15, 15, 0.05)",
+        "darkValue": "0 14px 40px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.06)",
+        "purpose": "Modals only."
+      },
+      {
+        "name": "focus-ring",
+        "value": "0 0 0 3px var(--nx-primary-ring)",
+        "purpose": "Text inputs, selects and textareas on focus, alongside a Signal Blue border."
+      },
+      {
+        "name": "tab-underline",
+        "value": "inset 0 -2px 0 var(--nx-ink-strong)",
+        "purpose": "The selected tab. Hover uses the same shape in --nx-hairline-strong. This is the only tab state signal."
+      }
+    ],
+    "motion": [
+      {
+        "name": "chrome",
+        "value": "120ms ease",
+        "purpose": "Default for chrome hover: top bar links, sidebar links, tabs, contextual actions, icon strokes."
+      },
+      {
+        "name": "control",
+        "value": "100ms linear",
+        "purpose": "Button background and border transitions."
+      },
+      {
+        "name": "sidebar-link",
+        "value": "100ms ease",
+        "purpose": "Sidebar link background and colour."
+      },
+      {
+        "name": "reveal",
+        "value": "200ms",
+        "purpose": "The my-page block's contextual actions fading in on hover."
+      },
+      {
+        "name": "spin",
+        "value": "1s linear infinite",
+        "purpose": "The SVG loader rotation."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-max",
+        "value": "599px",
+        "note": "Second mobile step: tighter spacing inside the flyout shell."
+      },
+      {
+        "name": "shell-max",
+        "value": "899px",
+        "note": "Primary responsive breakpoint. Body min-inline-size drops from 900px, header becomes a fixed 64px bar, menus move into a 250px flyout."
+      },
+      {
+        "name": "sidebar-fluid-max",
+        "value": "1089px",
+        "note": "Sidebar is a 22% share below this width."
+      },
+      {
+        "name": "sidebar-240",
+        "value": "1090px"
+      },
+      {
+        "name": "sidebar-280",
+        "value": "1280px"
+      },
+      {
+        "name": "sidebar-320",
+        "value": "1600px"
+      },
+      {
+        "name": "sidebar-360",
+        "value": "1920px"
+      },
+      {
+        "name": "sidebar-380",
+        "value": "2560px"
+      }
+    ],
+    "themeMechanics": {
+      "storageKey": "redmine-theme",
+      "rootAttribute": "data-theme",
+      "note": "Dark values are declared twice: inside @media (prefers-color-scheme: dark) > :root:not([data-theme=\"light\"]), and again in :root[data-theme=\"dark\"]. The duplication is what lets an explicit toggle win in both directions. An inline head script applies the stored value before first paint.",
+      "remap": "The legacy open-color --oc-* scale is redefined as aliases onto the --nx-* tokens in every theme block, so ~2700 lines of untouched legacy CSS (context menu, SCM, wiki syntax, dropdown, icon shims) follow the new world without being edited."
+    }
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single affirmative action of a form. Keyed off Rails' name=\"commit\", so exactly one per form gets it.",
+      "html": "<button class=\"ds-btn-primary\" name=\"commit\" type=\"submit\">Create</button>",
+      "css": ".ds-btn-primary { font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; font-weight: 500; height: 30px; padding-inline: 16px; color: var(--nx-on-primary, #ffffff); background-color: var(--nx-primary, #0075de); border: 1px solid transparent; border-radius: var(--nx-r-full, 9999px); cursor: pointer; transition: background-color 100ms linear, border-color 100ms linear; } .ds-btn-primary:hover { background-color: var(--nx-primary-hover, #005bab); } .ds-btn-primary:focus-visible { outline: 2px solid var(--nx-primary, #0075de); outline-offset: 1px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "The default for every non-affirmative submit and .button. Surface ground, hairline border, 8px corner.",
+      "html": "<button class=\"ds-btn-secondary\" type=\"submit\">Cancel</button>",
+      "css": ".ds-btn-secondary { font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; font-weight: 500; height: 30px; padding-inline: 14px; color: var(--nx-ink-secondary, #37352f); background-color: var(--nx-surface, #ffffff); border: 1px solid var(--nx-hairline-strong, #d6d3ce); border-radius: var(--nx-r-md, 8px); cursor: pointer; transition: background-color 100ms linear, border-color 100ms linear; } .ds-btn-secondary:hover { background-color: var(--nx-fill-hover, rgba(31,30,28,0.055)); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--nx-primary, #0075de); outline-offset: 1px; }"
+    },
+    {
+      "name": "Quiet Contextual Action",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "The contextual row above a list or inside a panel header. Almost invisible until pointed at; the most common action in the interface.",
+      "html": "<a class=\"ds-action\" href=\"#\"><svg class=\"ds-action-icon\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 20h9\"/><path d=\"M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z\"/></svg><span>Edit</span></a>",
+      "css": ".ds-action { display: inline-flex; align-items: center; gap: 4px; font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; text-decoration: none; color: var(--nx-ink-muted, #615d59); padding-block: 3px; padding-inline: 6px; border-radius: var(--nx-r-xs, 4px); transition: background-color 120ms ease, color 120ms ease; } .ds-action:hover { color: var(--nx-ink-strong, #0d0d0c); background-color: var(--nx-fill-hover, rgba(31,30,28,0.055)); text-decoration: none; } .ds-action:focus-visible { outline: 2px solid var(--nx-primary, #0075de); outline-offset: 1px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-text",
+      "description": "Surface ground, hairline-strong border, 4px corner. Focus shifts the border to Signal Blue and adds a 3px ring.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"Subject\" />",
+      "css": ".ds-input { font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; color: var(--nx-ink, #1f1e1c); background-color: var(--nx-surface, #ffffff); border: 1px solid var(--nx-hairline-strong, #d6d3ce); border-radius: var(--nx-r-xs, 4px); padding-block: 5px; padding-inline: 8px; box-sizing: border-box; } .ds-input::placeholder { color: var(--nx-ink-faint, #6f6a64); } .ds-input:focus { border-color: var(--nx-primary, #0075de); box-shadow: 0 0 0 3px var(--nx-primary-ring, rgba(0,117,222,0.28)); outline: none; } .ds-input:disabled { cursor: not-allowed; color: var(--nx-ink-faint, #6f6a64); background-color: var(--nx-surface-sunken, #f1f0ee); border-color: var(--nx-hairline, #e6e4e1); }"
+    },
+    {
+      "name": "Underline Tabs",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "Main menu and content tabs. No fill, no border, no radius; a 2px inset underline is the entire state signal.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab ds-tab--selected\" href=\"#\">Issues</a><a class=\"ds-tab\" href=\"#\">Spent time</a><a class=\"ds-tab\" href=\"#\">Gantt</a><a class=\"ds-tab\" href=\"#\">Wiki</a></nav>",
+      "css": ".ds-tabs { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid var(--nx-hairline, #e6e4e1); } .ds-tab { font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; font-weight: 500; text-decoration: none; color: var(--nx-ink-muted, #615d59); padding-block: 8px 9px; padding-inline: 10px; margin-bottom: -1px; background: transparent; border: 0; border-radius: 0; transition: color 120ms ease, box-shadow 120ms ease; } .ds-tab:hover { color: var(--nx-ink-strong, #0d0d0c); box-shadow: inset 0 -2px 0 var(--nx-hairline-strong, #d6d3ce); text-decoration: none; } .ds-tab--selected, .ds-tab--selected:hover { color: var(--nx-ink-strong, #0d0d0c); font-weight: 600; box-shadow: inset 0 -2px 0 var(--nx-ink-strong, #0d0d0c); }"
+    },
+    {
+      "name": "Issue List Table",
+      "kind": "custom",
+      "refersTo": "table-row",
+      "description": "The signature surface. Hairline rows, no zebra, a wash only on hover, tabular numerals down every numeric column.",
+      "html": "<table class=\"ds-list\"><thead><tr><th>#</th><th>Tracker</th><th>Status</th><th class=\"ds-list-start\">Subject</th><th>Updated</th></tr></thead><tbody><tr><td>27</td><td>Feature</td><td>In Progress</td><td class=\"ds-list-start\"><a href=\"#\">Project jump box drops its keyboard focus</a></td><td>08/30/2026 10:48 AM</td></tr><tr><td>26</td><td>Bug</td><td>In Progress</td><td class=\"ds-list-start\"><a href=\"#\">CSV export button is hidden below the fold</a></td><td>08/30/2026 10:48 AM</td></tr><tr><td>22</td><td>Support</td><td>Resolved</td><td class=\"ds-list-start\"><a href=\"#\">Login form contrast fails against the canvas</a></td><td>08/30/2026 10:48 AM</td></tr></tbody></table>",
+      "css": ".ds-list { font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; font-variant-numeric: tabular-nums; border-collapse: collapse; width: 100%; color: var(--nx-ink, #1f1e1c); border-bottom: 1px solid var(--nx-hairline, #e6e4e1); } .ds-list th { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.01em; color: var(--nx-ink-muted, #615d59); background: transparent; text-align: center; white-space: nowrap; padding-block: 8px; padding-inline: 6px; border-bottom: 1px solid var(--nx-hairline-strong, #d6d3ce); } .ds-list td { text-align: center; vertical-align: middle; padding-block: 7px; padding-right: 10px; border-top: 1px solid var(--nx-hairline, #e6e4e1); } .ds-list .ds-list-start { text-align: left; } .ds-list tbody tr { background-color: transparent; } .ds-list tbody tr:hover { background-color: var(--nx-fill-subtle, rgba(31,30,28,0.03)); } .ds-list a { color: var(--nx-link, #0075de); text-decoration: none; } .ds-list a:hover { color: var(--nx-primary-hover, #005bab); text-decoration: underline; text-underline-offset: 2px; }"
+    },
+    {
+      "name": "Status Badges",
+      "kind": "chip",
+      "refersTo": "badge-status-open",
+      "description": "Full-round 11px chips drawing ground and ink from the state tokens. Sentence case, transparent border.",
+      "html": "<span class=\"ds-badge ds-badge--open\">open</span> <span class=\"ds-badge ds-badge--closed\">closed</span> <span class=\"ds-badge ds-badge--locked\">locked</span> <span class=\"ds-badge ds-badge--private\">Private</span> <span class=\"ds-badge ds-badge--count\">12</span>",
+      "css": ".ds-badge { display: inline-block; font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-weight: 500; font-size: 0.6875rem; line-height: 1.5; padding-block: 2px; padding-inline: 8px; margin-inline: 3px; border: 1px solid transparent; border-radius: var(--nx-r-full, 9999px); letter-spacing: 0.01em; text-decoration: none; user-select: none; } .ds-badge--open { color: var(--nx-link, #0075de); background: var(--nx-primary-soft, #e8f2fd); } .ds-badge--closed { color: var(--nx-success, #1a8a45); background: var(--nx-success-soft, #e6f4ea); } .ds-badge--locked { color: var(--nx-ink-muted, #615d59); background: var(--nx-fill-active, rgba(31,30,28,0.09)); } .ds-badge--private { color: var(--nx-danger, #c1341b); background: var(--nx-danger-soft, #fbeae6); } .ds-badge--count { color: var(--nx-ink-secondary, #37352f); background: var(--nx-fill-active, rgba(31,30,28,0.09)); }"
+    },
+    {
+      "name": "Callouts",
+      "kind": "card",
+      "refersTo": "callout-notice",
+      "description": "Flash messages, errors, warnings and empty states share one shape: tinted ground, transparent border, 8px corner, icon in the same state colour. An empty result reads quiet, not alarmed.",
+      "html": "<div class=\"ds-callout ds-callout--notice\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg><span>Successful update.</span></div><div class=\"ds-callout ds-callout--error\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M12 7v6M12 16.5v.5\"/></svg><span>Subject cannot be blank.</span></div><div class=\"ds-callout ds-callout--empty\"><span>No data to display</span></div>",
+      "css": ".ds-callout { display: flex; align-items: center; gap: 8px; font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.875rem; line-height: 1.5; padding-block: 12px; padding-inline: 14px; margin-bottom: 12px; border: 1px solid transparent; border-radius: var(--nx-r-md, 8px); } .ds-callout--notice { color: var(--nx-success, #1a8a45); background-color: var(--nx-success-soft, #e6f4ea); } .ds-callout--error { color: var(--nx-danger, #c1341b); background-color: var(--nx-danger-soft, #fbeae6); } .ds-callout--warning { color: var(--nx-warning, #9a5b06); background-color: var(--nx-warning-soft, #fbf1e0); } .ds-callout--empty { justify-content: center; color: var(--nx-ink-faint, #6f6a64); background-color: var(--nx-fill-subtle, rgba(31,30,28,0.03)); }"
+    },
+    {
+      "name": "Sidebar Panel",
+      "kind": "nav",
+      "refersTo": "sidebar",
+      "description": "The one panel ground in the layout. Faint section headings, 13px links with a hover fill pulled into the gutter, a selected item on the active wash.",
+      "html": "<aside class=\"ds-sidebar\"><h3>Custom queries</h3><ul><li><a class=\"ds-sidebar-link ds-sidebar-link--selected\" href=\"#\">Issues assigned to me</a></li><li><a class=\"ds-sidebar-link\" href=\"#\">Reported issues</a></li><li><a class=\"ds-sidebar-link\" href=\"#\">Updated issues</a></li><li><a class=\"ds-sidebar-link\" href=\"#\">Watched issues</a></li></ul></aside>",
+      "css": ".ds-sidebar { font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 0.8125rem; width: 240px; color: var(--nx-ink-secondary, #37352f); background: var(--nx-canvas-soft, #f7f7f5); border-left: 1px solid var(--nx-hairline, #e6e4e1); padding: 18px 12px 24px 20px; box-sizing: border-box; } .ds-sidebar h3 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.02em; color: var(--nx-ink-faint, #6f6a64); margin: 0 0 8px; border: 0; padding: 0; } .ds-sidebar ul { margin: 0; padding: 0; list-style: none; } .ds-sidebar li { margin: 0 2px 0 0; } .ds-sidebar-link { display: inline-block; color: var(--nx-ink-secondary, #37352f); text-decoration: none; border-radius: var(--nx-r-xs, 4px); padding-block: 2px; padding-inline: 6px; margin-left: -6px; transition: background-color 100ms ease, color 100ms ease; } .ds-sidebar-link:hover { background-color: var(--nx-fill-hover, rgba(31,30,28,0.055)); color: var(--nx-ink-strong, #0d0d0c); text-decoration: none; } .ds-sidebar-link--selected, .ds-sidebar-link--selected:hover { font-weight: 500; background-color: var(--nx-fill-active, rgba(31,30,28,0.09)); color: var(--nx-ink-strong, #0d0d0c); }"
+    },
+    {
+      "name": "Avatar",
+      "kind": "custom",
+      "refersTo": "avatar",
+      "description": "Initials on a hue mixed 20% into the current canvas, so one class works in both themes. Eight hues assigned by user id.",
+      "html": "<span class=\"ds-avatar ds-avatar--5\" role=\"img\" aria-label=\"Anna Doe\">AD</span> <span class=\"ds-avatar ds-avatar--3\" role=\"img\" aria-label=\"John Smith\">JS</span> <span class=\"ds-avatar ds-avatar--0\" role=\"img\" aria-label=\"Robin Lee\">RL</span>",
+      "css": ".ds-avatar { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-size: 9.6px; font-weight: 600; letter-spacing: 0.01em; user-select: none; background-color: color-mix(in srgb, var(--ds-avatar-hue, #615d59) 20%, var(--nx-canvas, #ffffff)); color: var(--ds-avatar-hue, #37352f); } .ds-avatar--0 { --ds-avatar-hue: #c1341b; } .ds-avatar--1 { --ds-avatar-hue: #b45309; } .ds-avatar--2 { --ds-avatar-hue: #8a6205; } .ds-avatar--3 { --ds-avatar-hue: #1a8a45; } .ds-avatar--4 { --ds-avatar-hue: #12797b; } .ds-avatar--5 { --ds-avatar-hue: #0075de; } .ds-avatar--6 { --ds-avatar-hue: #6940a5; } .ds-avatar--7 { --ds-avatar-hue: #a12764; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Quiet Working Document",
+    "overview": "This is Redmine reskinned as a document you work in, not an admin console you operate. The chrome recedes until it is barely furniture: a 38px top bar with no fill of its own, a project title set in ink over a small breadcrumb, tabs that mark themselves with a two-pixel underline instead of a coloured pill. What is left in front of the reader is the data. The visual world is pinned to Notion — the token record vendored at .impeccable/references/DESIGN-notion.md is the contract this build answers to — and it lands as white paper, warm-grey hairlines, a single warm off-white panel ground, Inter at tight tracking, and small radii that go full-round only where an action wants to be found.\n\nThe load-bearing idea is not a colour or a typeface, it is a remap. Every colour in the interface flows from one set of --nx-* semantic tokens. Beneath those tokens, the entire legacy open-color --oc-* scale is redefined as aliases onto them, so roughly two and a half thousand lines of untouched Redmine CSS — the context menu, the SCM views, wiki syntax highlighting, the dropdown, the icon compatibility shims — obey the new world without being edited. Light and dark come from that same token set: an OS-preference block and an explicit [data-theme] mirror, so a manual toggle wins in both directions and nothing needs a second palette.\n\nThe system is built for a developer scanning a dense issue list. Density outranks decoration. Rows are separated by hairlines and never by fills, because the fill is reserved for saying \"your pointer is here.\" Colour is not used to decorate; it is used to say what state a thing is in, and the one blue in the palette is what tells you where the action is. This build was code-led: no comp exists, the world was pinned by brief rather than chosen by a direction roll, and every value is read back out of the shipped stylesheets.",
+    "keyCharacteristics": [
+      "Chrome with no fill of its own; hairlines and ink carry all structure.",
+      "One accent blue, spent on links, the single affirmative action, focus, and progress.",
+      "Semantic --nx-* tokens with the legacy --oc-* scale remapped onto them.",
+      "Light and dark from one token set, with an explicit toggle that beats the OS.",
+      "Inter at negative tracking, tabular numerals in every list.",
+      "Flat at rest; shadow only on things that actually leave the page."
+    ],
+    "rules": [
+      {
+        "name": "The One Blue Rule",
+        "body": "Blue is spent only on links, the single affirmative action of a form, the focus ring, and progress. If a new element wants blue for emphasis, it gets weight or hairline instead.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two-Blue Rule",
+        "body": "--nx-link and --nx-primary are two tokens on purpose, not one token used twice. Link text sits on a panel and a filled button carries white text, so when the palette inverts they must move in opposite directions: in dark the link lightens and the fill darkens, and both stay above 4.5:1. Never collapse them.",
+        "section": "colors"
+      },
+      {
+        "name": "The Colour-Is-State Rule",
+        "body": "Colour carries state and nothing else. Gantt bars, progress bars, badges, callouts and diffs all draw from the same state tokens; no component keeps a private palette. A new component that needs to signal \"late\" uses the danger token the Gantt chart uses.",
+        "section": "colors"
+      },
+      {
+        "name": "The Remap Rule",
+        "body": "The legacy --oc-* open-color names are aliases onto the --nx-* tokens, not colours. Never give an --oc-* name a literal value in a component rule, and never introduce a raw hex into a component rule — a new colour is a new --nx-* token or it is not a colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tinted-Ground Rule",
+        "body": "State colour appears as a tinted ground with transparent border and matching ink, never as a coloured left rail or a saturated bar. A private note is marked by its own ground; a flash message is a wash, not a banner.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Face Rule",
+        "body": "Inter carries the entire interface; the mono stack appears only inside code, diffs and identifiers. Noto Sans exists solely as the fallback face for scripts Inter does not cover — it is never chosen deliberately.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tight-Tracking Rule",
+        "body": "Letter-spacing tightens as type grows (−0.02em at display, −0.014em at headline, −0.008em at title) and opens to +0.01em only at label sizes. Body text stays at normal tracking.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tabular-Numbers Rule",
+        "body": "Every list table and every date, time and number input sets font-variant-numeric: tabular-nums, so ids, hours and dates align down a column. Prose sets proportional numerals; a .wiki block re-enables tabular inside its own tables and code.",
+        "section": "typography"
+      },
+      {
+        "name": "The Sentence-Case Rule",
+        "body": "Nothing is uppercased by CSS. Small labels earn their rank through weight, colour and 0.01em of tracking, and copy comes from locale files, so a text-transform would break a translation as often as it helped it.",
+        "section": "typography"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "Structure is carried by 1px hairlines: row separators, section rules, card edges, the underline beneath a table header, the line under the tab strip. A hairline is the default answer to \"how do I separate these.\"",
+        "section": "layout"
+      },
+      {
+        "name": "The No-Fill-Rows Rule",
+        "body": "Rows are never separated by fills. The stock zebra striping is explicitly zeroed out in both directions, and the row fill is reserved for pointer feedback so a scanning eye tracks exactly one row at a time.",
+        "section": "layout"
+      },
+      {
+        "name": "The Panel Rule",
+        "body": "canvas-soft is the panel ground — sidebar, mobile flyout, diff block. Content sits on canvas. A panel is defined by its ground plus a hairline on the edge it meets content on, not by a shadow.",
+        "section": "layout"
+      },
+      {
+        "name": "The Logical-Property Rule",
+        "body": "New rules use logical properties and never physical left/right, so RTL keeps working. The two exceptions in the build are deliberate: numeric columns (hours, sizes, estimates) stay text-align: right in every direction, because a number column reads right-aligned regardless of script.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat-Until-Floating Rule",
+        "body": "A surface gets a shadow only when it has left the page. If it is still part of the document — a card, a panel, a row, a form — it gets a hairline and nothing else.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Ringed-Shadow Rule",
+        "body": "Every shadow above the smallest step carries a 0 0 0 1px ring in its own value, and in dark that ring is a white wash. A shadow without its ring loses its edge the moment the theme inverts.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Round-Only-Action Rule",
+        "body": "Full-round means \"this is the action, this is the state, or this is a person.\" Primary buttons, badges, progress bars, avatars. Give a card a pill radius and the signal is gone.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Transparent-Border Rule",
+        "body": "A tinted state box declares border: 1px solid transparent rather than dropping the border. The geometry stays identical to its untinted sibling and the box never shifts when its state changes.",
+        "section": "shapes"
+      },
+      {
+        "name": "The One-Action Rule",
+        "body": "Exactly one control per form carries the accent fill, and the build gets that for free by keying the primary style off Rails' name=\"commit\". If a screen appears to need two primary buttons, one of them is secondary.",
+        "section": "components"
+      },
+      {
+        "name": "The Drawn-Icon Rule",
+        "body": "Icons are drawn, never typed. Every icon is an SVG — sprite-stroked with an ink token, or an inline-SVG data URI applied through mask with background-color: currentColor. No icon fonts, no text glyphs, no emoji as UI chrome.",
+        "section": "components"
+      },
+      {
+        "name": "The Mirror Rule",
+        "body": "Every dark-mode value is declared twice: once inside @media (prefers-color-scheme: dark) > :root:not([data-theme=\"light\"]) and once in a :root[data-theme=\"dark\"] block. That duplication is deliberate — it is what lets an explicit toggle win in both directions. A new dark value that lands in only one of the two blocks is a bug.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do route every colour through a --nx-* token. If the colour you want has no token, add one to all three theme blocks (light :root, the prefers-color-scheme block, and the [data-theme=\"dark\"] mirror) before you use it.",
+      "Do separate rows and sections with a 1px hairline, and reserve every fill for pointer feedback or selection.",
+      "Do keep the accent to links, one affirmative action, focus, and progress — the One Blue Rule.",
+      "Do take state colour from the existing state tokens (danger / success / warning / purple / info). A new component signalling \"late\" uses the same danger token the Gantt chart uses.",
+      "Do give a tinted state box border: 1px solid transparent so it keeps the geometry of its untinted sibling.",
+      "Do write logical properties (padding-inline, inset-block-start) so RTL keeps working, and mirror any background-position you set.",
+      "Do set font-variant-numeric: tabular-nums on anything that puts numbers in a column.",
+      "Do reach for color-mix(… , var(--nx-canvas)) when a tint must survive both themes from one class, the way avatar hues do.",
+      "Do draw new icons as SVG and colour them with currentColor or an ink token."
+    ],
+    "donts": [
+      "Don't reintroduce zebra striping, or any row fill that is not hover or selection. The stripes are explicitly zeroed out; putting them back undoes the central table decision.",
+      "Don't give the top bar, header, tab strip or footer a coloured fill. They are the same ground as the page, and the refusal of coloured header bars is the loudest thing this world says.",
+      "Don't collapse --nx-link into --nx-primary. They diverge in dark mode on purpose, and merging them drops one of the two below 4.5:1.",
+      "Don't write a literal hex, rgb() or named colour into a component rule, and don't assign a literal value to an --oc-* name — the open-color scale is an alias layer, not a palette.",
+      "Don't put a shadow on a resting surface. Cards, panels, rows and inputs get a hairline; shadow means the thing has left the page.",
+      "Don't use full-round radius on anything that is not the primary action, a badge, a progress bar or an avatar.",
+      "Don't render UI chrome icons as text glyphs, icon-font characters or emoji.",
+      "Don't uppercase labels with text-transform, and don't hardcode UI strings — copy comes from locale files and case belongs to the translation.",
+      "Don't treat an empty result as an error state; it takes the quiet fill-subtle treatment, not a coloured callout.",
+      "Don't copy colour values out of the Rouge syntax-highlighting block at the foot of the stylesheet. It is untouched generated output with literal light-only hex, and it is the one part of the file that does not speak the token system."
+    ]
+  }
+}

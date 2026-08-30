@@ -56,7 +56,7 @@
         <%
           header_bg_style = +"width: #{subject_width + 1}px;"
           header_bg_style << "height: #{headers_height}px;"
-          header_bg_style << 'background: #f1f3f5;' # oc-gray-1
+          header_bg_style << 'background: var(--nx-canvas-soft);'
         %>
         <%= content_tag(:div, "", style: header_bg_style, class: "gantt_hdr") %>
         <%
@@ -93,7 +93,7 @@
           <%= content_tag(:div, '', style: column_header_overlay_style, class: "gantt_hdr") %>
           <%
             column_header_style = +"height: #{headers_height}px;"
-            column_header_style << 'background: #f1f3f5;' # oc-gray-1
+            column_header_style << 'background: var(--nx-canvas-soft);'
           %>
           <%= content_tag(:div,
                           content_tag(:p, column.caption, class: 'gantt_hdr_selected_column_name'),
@@ -110,7 +110,7 @@
         <%
           months_header_style = +"width: #{g_width - 1}px;"
           months_header_style << "height: #{headers_height}px;"
-          months_header_style << 'background: #f1f3f5;' # oc-gray-1
+          months_header_style << 'background: var(--nx-canvas-soft);'
         %>
         <%= content_tag(:div, '&nbsp;'.html_safe, style: months_header_style, class: "gantt_hdr") %>
 

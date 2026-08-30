@@ -11,7 +11,7 @@
 <h2><%=l(:label_roadmap)%></h2>
 
 <% if @versions.empty? %>
-  <p class="nodata"><%= l(:label_no_data) %></p>
+  <%= nodata_tag((link_to(l(:label_version_new), new_project_version_path(@project)) if User.current.allowed_to?(:manage_versions, @project))) %>
 <% else %>
   <div id="roadmap">
   <% @versions.each do |version| %>

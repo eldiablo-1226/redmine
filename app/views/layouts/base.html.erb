@@ -9,6 +9,14 @@
 <%= csrf_meta_tag %>
 <%= favicon %>
 <%= stylesheet_link_tag 'jquery/jquery-ui-1.13.2', 'tribute-5.1.3', 'application', 'dropdown', 'responsive', :media => 'all' %>
+<%= javascript_tag do %>
+(function () {
+  try {
+    var theme = localStorage.getItem('redmine-theme');
+    if (theme) { document.documentElement.dataset.theme = theme; }
+  } catch (e) { /* storage unavailable */ }
+})();
+<% end %>
 <%= javascript_importmap_tags %>
 <%= javascript_heads %>
 <%= heads_for_theme %>
@@ -19,6 +27,23 @@
 <%= yield :header_tags -%>
 </head>
 <body class="<%= body_css_classes %>" data-text-formatting="<%= Setting.text_formatting %>">
+<!--
+  THESIS: Redmine as a quiet working document, not an admin console. Chrome
+  recedes, hairlines carry structure, one blue carries action. Refuses the
+  stock coloured header bars and the zebra-striped table.
+  OWN-WORLD: White canvas, #f7f7f5 panels, warm-grey hairlines, Inter at tight
+  tracking, 4-8px radii, full-round primary actions, ink icons, tinted
+  callouts. Light and dark from one token set.
+  STORY: A developer scanning issues reads the data first, finds the one
+  action without hunting, and takes state from colour used nowhere else.
+  FIRST VIEWPORT: 38px top bar, 26px project title over a small breadcrumb,
+  underline tabs, panel on #f7f7f5, issue table as hairline rows with hover.
+  FORM: brief-pinned world (Notion), no direction roll; the user's
+  DESIGN-notion.md token record is the contract.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the
+  finish review, the verdict, DESIGN.md, and every shipping raster carrying
+  its provenance.
+-->
 <%= call_hook :view_layouts_base_body_top %>
 <div id="wrapper">
 
@@ -64,6 +89,9 @@
   </div>
 
   <div class="profile-menu">
+    <button type="button" class="theme-toggle" data-controller="theme" data-action="click->theme#toggle" title="<%= l(:label_theme_toggle) %>">
+      <%= sprite_icon("bulb", l(:label_theme_toggle), icon_only: true, size: 16) %>
+    </button>
     <% if User.current.logged? %>
     <div id="account" class="dropdown" data-controller="dropdown">
       <a href="#" class="dropdown-trigger" data-action="click->dropdown#toggle">
@@ -162,6 +190,16 @@
 </div>
 <div id="ajax-modal" style="display:none;"></div>
 <div id="icon-copy-source" style="display: none;"><%= sprite_icon('') %></div>
+<template id="nx-confirm-template">
+  <dialog class="nx-confirm" aria-labelledby="nx-confirm-title">
+    <h2 id="nx-confirm-title" class="nx-confirm-title"><%= l(:label_confirmation) %></h2>
+    <p class="nx-confirm-message"></p>
+    <p class="nx-confirm-actions">
+      <button type="button" class="nx-confirm-cancel"><%= l(:button_cancel) %></button>
+      <button type="button" class="nx-confirm-accept"><%= l(:general_text_Yes) %></button>
+    </p>
+  </dialog>
+</template>
 
 </div>
 <%= call_hook :view_layouts_base_body_bottom %>

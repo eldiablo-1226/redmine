@@ -11,7 +11,7 @@
 <h2><%= l(:label_index_by_title) %></h2>
 
 <% if @pages.empty? %>
-<p class="nodata"><%= l(:label_no_data) %></p>
+<%= nodata_tag((link_to(l(:label_wiki_page_new), new_project_wiki_page_path(@project), :remote => true) if User.current.allowed_to?(:edit_wiki_pages, @project))) %>
 <% end %>
 
 <%= render_page_hierarchy(@pages_by_parent_id, nil, :timestamp => true) %>

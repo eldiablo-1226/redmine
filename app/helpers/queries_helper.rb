@@ -282,6 +282,20 @@ module QueriesHelper
         value.to_a.map {|a| format_object(a)}.join(" ").html_safe
       when :watcher_users
         content_tag('ul', value.to_a.map {|user| content_tag('li', format_object(user))}.join.html_safe)
+      when :assigned_to
+        if value.is_a?(Principal)
+          safe_join([avatar(value, :size => 16), format_object(value)], ' ')
+        else
+          format_object(value)
+        end
+      when :status
+        if value.is_a?(IssueStatus)
+          content_tag(
+            'span', format_object(value),
+            :class => "badge badge-status-#{value.is_closed? ? 'closed' : 'open'}")
+        else
+          format_object(value)
+        end
       else
         format_object(value)
       end

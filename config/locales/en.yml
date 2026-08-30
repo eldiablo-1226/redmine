@@ -966,6 +966,7 @@ en:
   label_bulk_edit_selected_issues: Bulk edit selected issues
   label_bulk_edit_selected_time_entries: Bulk edit selected time entries
   label_theme: Theme
+  label_theme_toggle: Toggle dark mode
   label_default: Default
   label_search_titles_only: Search titles only
   label_user_mail_option_all: "For any event on all my projects"
