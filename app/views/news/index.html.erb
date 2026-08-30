@@ -20,7 +20,9 @@
 
 <div id="news-list">
 <% if @newss.empty? %>
-<p class="nodata"><%= l(:label_no_data) %></p>
+<%= nodata_tag((link_to(l(:label_news_new),
+                       (@project ? project_news_index_path(@project) : news_index_path),
+                       :onclick => 'showAndScrollTo("add-news", "news_title"); return false;') if User.current.allowed_to?(:manage_news, @project, global: true))) %>
 <% else %>
 <% @newss.each do |news| %>
     <article class="news-article">

@@ -60,8 +60,8 @@ table.gantt-table td {
 }
 
 .gantt_hdr.nwday {
-  background-color: var(--oc-gray-1);
-  color: var(--oc-gray-6);
+  background-color: var(--nx-canvas-soft);
+  color: var(--nx-ink-muted);
 }
 
 .gantt_subjects,
@@ -77,12 +77,12 @@ table.gantt-table td {
   block-size: 16px;
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: clip;
+  text-overflow: ellipsis;
   inline-size: 100%;
 }
 
 .gantt_subjects div.issue-subject:hover {
-  background-color: var(--oc-yellow-0);
+  background-color: var(--nx-fill-subtle);
 }
 
 .gantt_selected_column_content > div {
@@ -130,7 +130,7 @@ td.gantt_watcher_users_column div.issue_watcher_users ul li:not(:last-child)::af
   position: absolute;
   block-size: 8px;
   font-size: 0.8em;
-  color: var(--oc-gray-6);
+  color: var(--nx-ink-muted);
   padding: 0;
   margin: 0;
   line-height: 16px;
@@ -146,24 +146,26 @@ td.gantt_watcher_users_column div.issue_watcher_users ul li:not(:last-child)::af
   font-weight: bold;
 }
 
+/* Gantt bars answer to the same palette as every other progress bar: one
+   blue for work done, the state hues only where the state is exceptional. */
 .task_late {
-  background: var(--oc-red-5) url(/task_late.png);
-  border: 1px solid var(--oc-red-5);
+  background: var(--nx-danger);
+  border: 1px solid var(--nx-danger);
 }
 
 .task_done {
-  background: var(--oc-green-7) url(/task_done.png);
-  border: 1px solid var(--oc-green-7);
+  background: var(--nx-primary);
+  border: 1px solid var(--nx-primary);
 }
 
 .task_todo {
-  background: var(--oc-gray-5) url(/task_todo.png);
-  border: 1px solid var(--oc-gray-5);
+  background: var(--nx-fill-active);
+  border: 1px solid var(--nx-hairline-strong);
 }
 
 .task_todo.parent {
-  background: var(--oc-gray-6);
-  border: 1px solid var(--oc-gray-6);
+  background: var(--nx-ink-faint);
+  border: 1px solid var(--nx-ink-faint);
   block-size: 3px;
 }
 
@@ -174,7 +176,10 @@ td.gantt_watcher_users_column div.issue_watcher_users ul li:not(:last-child)::af
 
 .task.parent.marker.starting {
   position: absolute;
-  background: url(/task_parent_end.png) no-repeat 0 0;
+  background-color: var(--nx-ink-faint);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16'%3E%3Cpath d='M0 0h8v5l-4 4-4-4z' fill='%23000'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: 8px 16px;
   inline-size: 8px;
   block-size: 16px;
   margin-inline-start: -4px;
@@ -184,7 +189,10 @@ td.gantt_watcher_users_column div.issue_watcher_users ul li:not(:last-child)::af
 
 .task.parent.marker.ending {
   position: absolute;
-  background: url(/task_parent_end.png) no-repeat 0 0;
+  background-color: var(--nx-ink-faint);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 16'%3E%3Cpath d='M0 0h8v5l-4 4-4-4z' fill='%23000'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: 8px 16px;
   inline-size: 8px;
   block-size: 16px;
   margin-inline-start: -4px;
@@ -193,58 +201,66 @@ td.gantt_watcher_users_column div.issue_watcher_users ul li:not(:last-child)::af
 }
 
 .version.task_late {
-  background: var(--oc-red-5) url(/milestone_late.png);
-  border: 1px solid var(--oc-red-5);
+  background: var(--nx-danger);
+  border: 1px solid var(--nx-danger);
   block-size: 2px;
   margin-block-start: 3px;
 }
 
 .version.task_done {
-  background: var(--oc-green-7) url(/milestone_done.png);
-  border: 1px solid var(--oc-green-7);
+  background: var(--nx-primary);
+  border: 1px solid var(--nx-primary);
   block-size: 2px;
   margin-block-start: 3px;
 }
 
 .version.task_todo {
-  background: var(--oc-white) url(/milestone_todo.png);
-  border: 1px solid var(--oc-white);
+  background: var(--nx-fill-active);
+  border: 1px solid var(--nx-hairline-strong);
   block-size: 2px;
   margin-block-start: 3px;
 }
 
 .version.marker {
-  background-image: url(/version_marker.png);
-  background-repeat: no-repeat;
+  background-color: var(--nx-ink-strong);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M4 0 8 4 4 8 0 4Z' fill='%23000'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: 8px 8px;
+  inline-size: 8px;
+  block-size: 8px;
   border: 0;
   margin-inline-start: -4px;
   margin-block-start: 1px;
 }
 
 .project.task_late {
-  background: var(--oc-red-5) url(/milestone_late.png);
-  border: 1px solid var(--oc-red-5);
+  background: var(--nx-danger);
+  border: 1px solid var(--nx-danger);
   block-size: 2px;
   margin-block-start: 3px;
 }
 
 .project.task_done {
-  background: var(--oc-green-7) url(/milestone_done.png);
-  border: 1px solid var(--oc-green-7);
+  background: var(--nx-primary);
+  border: 1px solid var(--nx-primary);
   block-size: 2px;
   margin-block-start: 3px;
 }
 
 .project.task_todo {
-  background: var(--oc-white) url(/milestone_todo.png);
-  border: 1px solid var(--oc-white);
+  background: var(--nx-fill-active);
+  border: 1px solid var(--nx-hairline-strong);
   block-size: 2px;
   margin-block-start: 3px;
 }
 
 .project.marker {
-  background-image: url(/project_marker.png);
-  background-repeat: no-repeat;
+  background-color: var(--nx-primary);
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath d='M4 0 8 4 4 8 0 4Z' fill='%23000'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-size: 8px 8px;
+  inline-size: 8px;
+  block-size: 8px;
   border: 0;
   margin-inline-start: -4px;
   margin-block-start: 1px;
@@ -258,11 +274,11 @@ td.gantt_watcher_users_column div.issue_watcher_users ul li:not(:last-child)::af
 
 .version-behind-schedule a,
 .issue-behind-schedule a {
-  color: var(--oc-yellow-8);
+  color: var(--nx-warning);
 }
 
 .version-overdue a,
 .issue-overdue a,
 .project-overdue a {
-  color: var(--oc-red-8);
+  color: var(--nx-danger);
 }

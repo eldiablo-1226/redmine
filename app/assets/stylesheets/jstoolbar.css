@@ -39,16 +39,20 @@
     border-block-end: 1px solid transparent;
 }
 .jstElements {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
     vertical-align: bottom;
     padding-inline-start: 6px;
     padding-block-end: 2px;
-    block-size: 26px;
+    block-size: 30px;
 }
 .wiki-preview {
-    color: var(--oc-gray-9);
-    background-color: var(--oc-white);
-    border: 1px solid var(--oc-gray-4);
+    color: var(--nx-ink);
+    background-color: var(--nx-surface);
+    border: 1px solid var(--nx-hairline);
+    border-radius: var(--nx-r-md);
+    padding: 10px;
 }
 .wiki-preview p.empty-preview {color: var(--oc-gray-6); font-style: italic; margin-block-start: 1em; text-align: center;}
 
@@ -59,17 +63,18 @@
     padding: 4px;
     border-style: solid;
     border-width: 1px;
-    border-color: var(--oc-gray-4);
-    background-color : var(--oc-gray-0);
+    border-color: transparent;
+    border-radius: var(--nx-r-xs);
+    background-color: transparent;
     background-position : 50% 50%;
     background-repeat: no-repeat;
     cursor:pointer;
-    opacity:0.7;
+    opacity: 0.65;
 }
 .jstElements button:hover {
-    border-color: var(--oc-gray-5);
-    background-color: var(--oc-gray-3);
-    opacity:1;
+    border-color: transparent;
+    background-color: var(--nx-fill-hover);
+    opacity: 1;
 }
 .jstElements button span {
     display : none;
@@ -88,14 +93,14 @@
 .jstElements .help a {padding-block: 2px; padding-inline-start: 20px; padding-inline-end: 0; background: url(./help.png) no-repeat 0 50%;}
 
 .table-generator td {
-    border: 2px solid var(--oc-gray-5);
-    background-color: white;
+    border: 1px solid var(--nx-hairline-strong);
+    background-color: var(--nx-surface);
     padding: 10px;
     cursor: pointer;
 }
 
 .table-generator td.selected-cell, .table-generator td:hover {
-    background-color: var(--oc-blue-1);
+    background-color: var(--nx-primary-soft);
 }
 
 .table-generator {

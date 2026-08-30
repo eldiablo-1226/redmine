@@ -13,7 +13,7 @@
 
 <% if @query.valid? %>
   <% if @entries.empty? %>
-    <p class="nodata"><%= l(:label_no_data) %></p>
+    <%= nodata_tag((link_to(l(:label_project_new), new_project_path) if User.current.allowed_to?(:add_project, nil, :global => true))) %>
   <% else %>
     <%= render :partial => @query.display_type, :locals => { :entries => @entries }%>
   <% end %>

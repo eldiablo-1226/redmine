@@ -33,7 +33,7 @@
                }
              } %>
 <% else %>
-  <p class="nodata"><%= l(:label_no_data) %></p>
+  <%= nodata_tag(link_to(l(:label_issue_view_all), _project_issues_path(query.project, query.as_params))) %>
 <% end %>
 
 <% content_for :header_tags do %>

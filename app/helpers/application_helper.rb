@@ -1812,6 +1812,14 @@ module ApplicationHelper
   end
 
   # Returns the javascript tags that are included in the html layout head
+  # An empty result is a state, not a problem: it stays quiet and carries the
+  # one action that fills it, when the visitor is allowed to take that action.
+  def nodata_tag(action = nil)
+    content = content_tag('span', l(:label_no_data), :class => 'nodata-message')
+    content += content_tag('span', action, :class => 'nodata-action') if action.present?
+    content_tag('p', content, :class => 'nodata')
+  end
+
   def javascript_heads
     tags = javascript_include_tag(
       'jquery-3.7.1-ui-1.13.3',

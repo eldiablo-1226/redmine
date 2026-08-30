@@ -96,7 +96,8 @@
     margin: 0;
     padding: 0;
     border: none;
-    background-color: #628db6;
+    border-block-end: 1px solid var(--nx-hairline);
+    background-color: var(--nx-canvas);
     position: fixed;
     z-index: 9999;
   }
@@ -108,7 +109,7 @@
 
   /* reset #header a color for mobile toggle button */
   #header a.mobile-toggle-button {
-    color: var(--oc-gray-0);
+    color: var(--nx-ink-secondary);
   }
 
 
@@ -140,39 +141,40 @@
     padding-inline: 20px 72px;
   }
   #project-jump .drdn-trigger {
-    font-size:1.5em;
-    font-weight:bold;
+    font-size:1.375em;
+    font-weight:600;
+    letter-spacing: -0.02em;
     display:block;
     inline-size:100%;
-    color:var(--oc-white);
+    color: var(--nx-ink-strong);
     padding-inline-start: 24px;
     background:transparent;
     block-size:50px;
-    line-height:40px;
+    line-height:44px;
     border:0;
   }
+  #project-jump .drdn-trigger:hover {background: transparent;}
   #project-jump .drdn-trigger:before {
     /* set a font-size in order to achive same result in different themes */
     font-family: var(--fonts-main);
     font-size: 1.5em;
 
     position: absolute;
-    inset-inline-start: 0;
+    inset-inline-end: 8px;
+    inset-block-start: 0;
     padding-block: 0;
-    padding-inline: 8px;
-    /* achieve dropdwon arrow by scaling a caret character */
-    content: '^';
-    -webkit-transform: scale(1,-.8);
-            transform: scale(1,-.8);
-    text-align: end;
+    padding-inline: 0;
+    content: '';
+    inline-size: 14px;
+    block-size: 100%;
+    background: var(--nx-chevron) no-repeat center;
     pointer-events: none;
 
-    opacity: .6;
+    opacity: .8;
   }
   #project-jump.expanded .drdn-trigger:before {
-    -webkit-transform: scale(1,.8);
-            transform: scale(1,.8);
-    padding-block-start: 8px;
+    -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
   }
 
   #project-jump .drdn-content {
@@ -234,7 +236,7 @@
   \*----------------------------------------*/
 
   .mobile-toggle-button {
-    font-size: 2.625rem;
+    font-size: 2rem;
     line-height: 64px;
 
     position: relative;
@@ -249,7 +251,7 @@
 
     text-align: center;
 
-    border-inline-start: 1px solid var(--oc-gray-3);
+    border-inline-start: 1px solid var(--nx-hairline);
   }
 
   .mobile-toggle-button:hover,
@@ -258,10 +260,15 @@
   }
 
   .mobile-toggle-button:after {
-    font-family: var(--fonts-main);
+    content: '';
     display: block;
-    margin-block-start: -3px;
-    content: '\2261';
+    inline-size: 24px;
+    block-size: 24px;
+    margin-block-start: 20px;
+    margin-inline: auto;
+    background-color: currentColor;
+    -webkit-mask: var(--nx-icon-menu) no-repeat center / 24px 24px;
+    mask: var(--nx-icon-menu) no-repeat center / 24px 24px;
   }
 
   .search-magnifier--flyout {
@@ -284,8 +291,9 @@
     margin: 0; /* reset margin for themes that define it */
     padding: 0; /* reset padding for themes that define it */
 
-    color: white;
-    background-color: #3e5b76;
+    color: var(--nx-ink);
+    background-color: var(--nx-canvas-soft);
+    border-inline-start: 1px solid var(--nx-hairline);
   }
 
   /* avoid zoom on search input focus for ios devices */
@@ -295,22 +303,23 @@
 
   .flyout-menu h3 {
     font-size: 0.6875rem;
-    line-height: 19px;
+    line-height: 22px;
 
-    block-size: 20px;
+    block-size: 24px;
     margin: 0;
     padding: 0;
 
-    letter-spacing: .1em;
+    letter-spacing: .06em;
     text-transform: uppercase;
+    font-weight: 600;
 
-    color: white;
-    border-block: 1px solid #506a83;
-    background-color: #628db6;
+    color: var(--nx-ink-faint);
+    border-block: 1px solid var(--nx-hairline);
+    background-color: transparent;
   }
 
   .flyout-menu h4 {
-    color: white;
+    color: var(--nx-ink-secondary);
   }
 
   .flyout-menu h3,
@@ -361,7 +370,7 @@
     line-height: 39px;
     display: block;
     padding-inline-start: 8px;
-    border-block-start: 1px solid rgba(255,255,255,.1);
+    border-block-start: 1px solid var(--nx-hairline);
   }
 
   .flyout-menu__sidebar form > ul li:first-child {
@@ -418,7 +427,7 @@
     -webkit-align-items: center;
     -webkit-box-align: center;
     align-items: center;
-    border-block-start: 1px solid rgba(255,255,255,.1);
+    border-block-start: 1px solid var(--nx-hairline);
   }
 
   .flyout-menu #watchers ul li a, .flyout-menu ul.queries li a {
@@ -437,7 +446,7 @@
     block-size: 40px;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border-block-start: 1px solid rgba(255,255,255,.1);
+    border-block-start: 1px solid var(--nx-hairline);
   }
 
   .flyout-menu ul li:first-child a {
@@ -447,11 +456,11 @@
   }
 
   .flyout-menu a {
-    color: white;
+    color: var(--nx-ink-secondary);
   }
 
   .flyout-menu .icon svg, .flyout-menu .icon-only svg {
-    stroke: white;
+    stroke: var(--nx-ink-muted);
   }
 
   .flyout-menu ul li a:hover {
@@ -480,10 +489,9 @@
 
     vertical-align: middle;
 
-    border: none;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background-color: var(--oc-white);
+    border: 1px solid var(--nx-hairline);
+    border-radius: var(--nx-r-sm);
+    background-color: var(--nx-surface);
   }
 
   .flyout-menu__avatar {
@@ -491,7 +499,7 @@
     display: -webkit-flex;
     display: flex;
     inline-size: 100%;
-    border-block-start: 1px solid rgba(255,255,255,.1);
+    border-block-start: 1px solid var(--nx-hairline);
   }
 
   .flyout-menu__avatar img.gravatar {
@@ -506,7 +514,7 @@
     line-height: 40px;
     block-size: 40px;
     text-decoration: none;
-    color: white;
+    color: var(--nx-ink-secondary);
   }
 
   /* avatar */
@@ -549,7 +557,8 @@
   }
 
   .flyout-is-active .mobile-toggle-button:after {
-    content: '\00D7'; /* close glyph */
+    -webkit-mask-image: var(--nx-icon-close);
+    mask-image: var(--nx-icon-close);
   }
 
   .flyout-is-active #main {
@@ -636,6 +645,11 @@
   }
 
   #filters-table {inline-size: 100%; float: none;}
+
+  table.list td, table.list th, .table-list-header {
+    padding-inline: 4px;
+  }
+  table.list td.subject, table.list td.name {min-inline-size: 9em;}
   .add-filter {inline-size: 100%; float: none; text-align: start; margin-block-start: 8px;}
 
   /*----------------------------------------*\
@@ -721,6 +735,20 @@
   .tabular input[type="checkbox"], .tabular input.date {
     inline-size: auto;
     max-inline-size: 95%;
+  }
+
+  /* p.buttons owns the gap between its controls; the mobile button treatment
+     must not add a second one on top of it */
+  p.buttons a {
+    margin-inline-end: 0;
+  }
+
+  /* Record attributes stack rather than keep a label column at this width */
+  div.issue .attributes .attribute {
+    grid-template-columns: 1fr;
+    gap: 0;
+    min-block-size: 0;
+    margin-block-end: 10px;
   }
 
   /* new issue form */
