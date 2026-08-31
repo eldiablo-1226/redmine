@@ -9,7 +9,7 @@
   <%= submit_tag(l(:label_view_diff), :name => nil) %>
 </p>
 <% end %>
-<div class="autoscroll">
+<div class="autoscroll" tabindex="0">
 <% show_revision_graph = ( @repository.supports_revision_graph? && path.blank? ) %>
 <%= if show_revision_graph && revisions && revisions.any?
     indexed_commits, graph_space = index_commits(revisions, @repository.branches) do |scmid|

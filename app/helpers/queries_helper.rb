@@ -290,9 +290,17 @@ module QueriesHelper
         end
       when :status
         if value.is_a?(IssueStatus)
+          closed = value.is_closed?
+          # Shape and glyph both restate what the label says, so the cell reads
+          # without being read. The icon is decorative; the name still carries it.
+          # A dot in a circle for open — neutral across New, In Progress and
+          # Feedback alike — and a bare check for closed, because the closed chip
+          # is already an outline and a second container inside it would be one
+          # border too many.
           content_tag(
-            'span', format_object(value),
-            :class => "badge badge-status-#{value.is_closed? ? 'closed' : 'open'}")
+            'span',
+            sprite_icon(closed ? 'checked' : 'circle-dot-filled', format_object(value), size: 12),
+            :class => "badge badge-status-#{closed ? 'closed' : 'open'}")
         else
           format_object(value)
         end

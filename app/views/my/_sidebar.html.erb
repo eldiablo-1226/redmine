@@ -39,7 +39,7 @@
       <%= sprite_icon('copy') %>
     </a>
   </div>
-  <pre id='api-access-key' class='autoscroll' data-api-key-copy-target="apiKey"></pre>
+  <pre id='api-access-key' class='autoscroll' tabindex="0" data-api-key-copy-target="apiKey"></pre>
   <%= javascript_tag("$('#api-access-key').hide();") %>
   <p>
   <% if @user.api_token %>

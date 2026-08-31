@@ -18,6 +18,40 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 module AdminHelper
+  # Fourteen peers in one column asks the reader to know the menu already.
+  # Grouping reorders across groups by construction; order inside a group is the
+  # order the menu resolved to. A node that is not listed here — anything a
+  # plugin pushed — lands in the trailing group rather than being dropped.
+  ADMIN_MENU_GROUPS = [
+    [:label_user_plural, [:users, :groups, :roles]],
+    [:label_issue_plural, [:trackers, :issue_statuses, :workflows, :custom_fields, :enumerations]],
+    [:label_administration, [:settings, :ldap_authentication, :applications, :plugins, :info]],
+    [:label_project_plural, [:projects]]
+  ].freeze
+
+  def render_grouped_admin_menu
+    nodes = []
+    menu_items_for(:admin_menu) {|node| nodes << node}
+    known = ADMIN_MENU_GROUPS.flat_map(&:last)
+
+    groups = ADMIN_MENU_GROUPS.map do |caption, names|
+      [caption, nodes.select {|node| names.include?(node.name)}]
+    end
+    others = nodes.reject {|node| known.include?(node.name)}
+    groups << [:label_admin_menu_other, others] if others.any?
+
+    safe_join(
+      groups.filter_map do |caption, items|
+        next if items.empty?
+
+        content_tag(
+          'section',
+          content_tag('h3', l(caption)) +
+            content_tag('ul', safe_join(items.map {|node| render_menu_node(node)})),
+          :class => 'admin-menu-group')
+      end)
+  end
+
   def project_status_options_for_select(selected)
     options_for_select([[l(:label_all), ''],
                         [l(:project_status_active), '1'],
