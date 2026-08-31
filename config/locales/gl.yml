@@ -1572,3 +1572,5 @@ gl:
   error_issue_status_default_for_trackers: Este estado está a ser usado como o estado por defecto por algúns tipos de tarefas
   text_users_remove_from_group_confirmation: Are you sure you want to remove the selected
     user(s) from the group %{group}?
+  label_admin_menu_other: Other
+  label_theme_toggle: Toggle dark mode

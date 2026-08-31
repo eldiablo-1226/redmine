@@ -57,7 +57,6 @@ typography:
     fontWeight: 400
     lineHeight: 1.5
     letterSpacing: "normal"
-    fontFeature: "\"cv05\" 1, \"ss03\" 1"
   dense:
     fontFamily: "Inter, Noto Sans, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif"
     fontSize: "0.8125rem"
@@ -317,7 +316,7 @@ The state accents. Each has a saturated ink value and a soft wash used as a grou
 **Display / Body Font:** Inter (self-hosted woff2, weights 400/500/600/700 plus a 400 italic and a Cyrillic subset), falling back to Noto Sans, then the platform UI stack.
 **Label / Mono Font:** SFMono-Regular, Consolas, Menlo, Liberation Mono.
 
-**Character:** One face does the whole interface. Inter runs with `cv05` and `ss03` enabled so the lowercase l gains a tail and the g stays single-storey — small corrections that keep an issue subject legible at 13px. Tracking tightens as size grows and loosens slightly for the smallest labels, which is what makes a 26px project title read as set rather than as scaled-up UI text.
+**Character:** One face does the whole interface. The shipped Inter 4.001 subsets expose `calt ccmp dnom frac kern locl mark mkmk numr pnum tnum` and nothing else, so no stylistic set is requested — an earlier `cv05`/`ss03` declaration asked for features the binaries do not contain and was removed rather than left as decoration. The one contextual alternate that does ship turns a digit-x-digit sequence into a multiplication sign, so `font-variant-ligatures: no-contextual` is applied narrowly to the places arbitrary identifiers appear — issue ids, file sizes, filenames, revisions — and prose keeps its alternates. Tracking tightens as size grows and loosens slightly for the smallest labels, which is what makes a 26px project title read as set rather than as scaled-up UI text.
 
 ### Hierarchy
 
@@ -326,7 +325,8 @@ The state accents. Each has a saturated ink value and a soft wash used as a grou
 - **Title** (600, `{typography.title}`): Sub-section headings, the subject line inside an issue panel.
 - **Body** (400, `{typography.body}`, line-height 1.5): Prose, descriptions, wiki content, form values.
 - **Dense** (400–500, `{typography.dense}`): The working size. Tables, tabs, sidebar, contextual actions, journal headers, breadcrumb paragraphs. Most of the interface lives here.
-- **Label** (500–600, `{typography.label}`, positive tracking): Table headers, fieldset legends, sidebar section headings, badges, timestamps, the top bar. Sentence case — never uppercased.
+- **Label** (500–600, `{typography.label}`, positive tracking): Table headers, fieldset legends, sidebar section headings, badges, timestamps, the top bar. Sentence case — never uppercased. Positive tracking belongs to 11–12px labels only; at 13–14px it is zero.
+- **The heading floor.** No heading renders smaller than the body it introduces. `h4` sits at body size with weight 600 and its hairline rule, rather than being demoted three ways at once — smaller, muted and ruled.
 - **Mono** (`{typography.mono}`): Code, diffs, revision identifiers, backup codes.
 
 There is a separate, slightly larger ramp inside `.wiki` content (28px / 22px / 18px / 16px), because a wiki page is a document and gets document proportions rather than UI proportions.
@@ -346,6 +346,8 @@ There is a separate, slightly larger ramp inside `.wiki` content (28px / 22px / 
 The shell is a vertical stack: a 38px top bar, a header carrying the project title over a breadcrumb with the search field floated opposite, a tab strip pinned to the bottom edge of the header, then a flex row that puts content first and the sidebar second in source order but reverses it visually (`flex-direction: row-reverse`), so the sidebar reads on the trailing edge and the content still comes first for a screen reader. A footer closes the page with a hairline above it.
 
 Content sits at a 28px gutter with 24px of space above and 48px below. Panels (`.box`, `.mypage-box`) take 16–18px of internal padding; a record panel (`div.issue`) takes 20–22px and a slightly larger radius. The sidebar takes 18px top, 20px leading, 12px trailing, 24px bottom, and steps its width by viewport: a 22% share below 1090px, then fixed steps of 240 / 280 / 320 / 360 / 380px as the viewport grows past 1090, 1280, 1600, 1920 and 2560px, so a wide monitor gives the sidebar more room without letting it swallow the table.
+
+Two width primitives govern the content column. `--nx-frame` is the **outer** box of `#content` — `box-sizing: border-box` is stated explicitly, because the stylesheet has no universal reset and the 28px gutter would otherwise push a 1280px frame out to 1336px. It defaults to `none` and is raised to 1280px per action, never per controller: the admin index, settings, my page, a wiki page, the news index and the project index are framed; every issue list, repository view, gantt, timelog, version list, wiki history or diff, plugin settings page and admin sub-table is not, because capping a dense table produces empty outer margins and a sideways scroll inside them at the same time. `--nx-measure` is the reading measure, 31rem — about 76 characters of 14px Inter. It is expressed in `rem` rather than `ch` or `em` on purpose: both of those scale with the element's own font-size, which gave a 28px heading a cap almost twice the width of the prose beneath it.
 
 The rhythm is a plain even scale — 4, 6, 8, 12, 16, 24px — with 28px reserved for the page gutter and 48px for the bottom of the content column. Vertical rhythm inside lists is tight on purpose: a table row is 7px of padding and one hairline.
 
@@ -381,13 +383,21 @@ Shadow is spent only on things that have actually left the page — a dropdown, 
 
 **The Ringed-Shadow Rule.** Every shadow above the smallest step carries a `0 0 0 1px` ring in its own value, and in dark that ring is a white wash. A shadow without its ring loses its edge the moment the theme inverts.
 
+## Motion
+
+Two durations and one curve: `{motion.dur-fast}` 90ms for feedback that fires many times a session, `{motion.dur}` 160ms for a state change, and an exponential ease-out for both. Nothing in the product runs past 300ms, because nothing here is a hero. Every transition in the stylesheet references those tokens — an audit is a grep, not a reading. Only colour, background, border, stroke, box-shadow and opacity animate; layout properties never do, and a table row's hover is background alone.
+
+**Reduced motion is less movement, not less feedback.** A blanket `transition-duration` override also erases hover, focus and selection response, none of which move anything, and a blanket transform reset flattens static transforms like the expanded project-jump chevron. So `prefers-reduced-motion` addresses only the two things that actually displace or fade: the flash message swaps to a variant that fades without its 4px rise, and the my-page action reveal becomes instant. The loading spinner needs no exemption, because nothing suppresses it.
+
+**Hidden-until-hover is a reachability bug, not a style.** An affordance revealed by `:hover` alone does not exist for a keyboard or a finger. The my-page contextual actions are revealed by `:focus-within` as well, are simply always visible where there is no hover to begin with, and only animate inside `(hover: hover) and (pointer: fine)`. The same reasoning makes every `.autoscroll` region focusable: a table that scrolls sideways under a pointer and not under a keyboard hides its last columns from anyone not using a mouse.
+
 ## Shapes
 
 Corners are small and consistent: 4px for the things you click through quickly (inputs, sidebar links, contextual actions, menu items), 5px for the search field and the project-jump trigger, 8px for cards, menus, callouts, fieldsets and secondary buttons, 12px for the two surfaces that read as objects — the record panel on an issue page, the my-page block, the login card, the modal.
 
 Full-round (`{rounded.full}`) is a deliberate signal, not a style: it belongs to the primary action, the badge, the progress bar, the avatar and the scrollbar thumb. Nothing else in the system is a pill.
 
-Borders are always 1px, always a hairline token, never coloured. Where a state needs an outline, the build uses `border-color: transparent` plus a tinted ground so the box keeps its geometry without gaining a coloured edge. The one deliberate rail in the system is a 3–4px inline-start border: blockquotes take a hairline-strong rail, CommonMark alerts take a state-coloured one.
+Borders are always 1px, always a hairline token, never coloured — with the single documented exception of the closed status chip in an issue list, below. Where a state needs an outline, the build uses `border-color: transparent` plus a tinted ground so the box keeps its geometry without gaining a coloured edge. The one deliberate rail in the system is a 3–4px inline-start border: blockquotes take a hairline-strong rail, CommonMark alerts take a state-coloured one.
 
 Selects and the project-jump control drop their native appearance and take a drawn chevron as a background image, positioned `right 6px` in LTR and mirrored in RTL, with an up-chevron swapped in on expansion.
 
@@ -396,6 +406,8 @@ Selects and the project-jump control drop their native appearance and take a dra
 **The Round-Only-Action Rule.** `{rounded.full}` means "this is the action, this is the state, or this is a person." Primary buttons, badges, progress bars, avatars. Give a card a pill radius and the signal is gone.
 
 **The Transparent-Border Rule.** A tinted state box declares `border: 1px solid transparent` rather than dropping the border. The geometry stays identical to its untinted sibling and the box never shifts when its state changes.
+
+**The Closed-Chip Exception.** One selector is exempt from the Tinted-Ground and Transparent-Border rules: `tr.issue td.status .badge-status-closed` drops its ground and takes a `{colors.success}` hairline instead. It was granted deliberately, because open and closed were separated by hue alone — 1.04:1 between the two inks and 1.00:1 between the two grounds, so in greyscale they were the same chip and only the word distinguished them. The outline restores a luminance channel without introducing a hue. The exemption stops there: the open chip, the locked chip, the version and wiki badges, and any plugin-supplied badge all keep their tinted ground.
 
 ## Components
 
@@ -432,6 +444,10 @@ Selects and the project-jump control drop their native appearance and take a dra
 - **Menus and dropdowns:** Surface ground, hairline, 8px radius, Float shadow, 4px of vertical padding. Items take a 4px-radius `fill-hover` on hover. A selected item in a selection dropdown is marked by the drawn check icon.
 - **Mobile:** Below 900px the top and main menus move into a 250px flyout on the panel ground; the toggle button is a masked menu icon that swaps to a masked close icon when the flyout is open.
 
+### Admin index
+
+Fourteen peers in one column asks the reader to already know the menu. The directory groups them under four headings — People, Issues, Administration, Projects — laid out as a grid on the container, so a plugin's nested child menu stays a list rather than becoming a second grid. Grouping reorders across groups by construction; order inside a group is the order the menu resolved to. Anything a plugin pushed that the mapping does not name lands in a trailing "Other" group rather than being dropped. The shared admin sidebar on other screens is not grouped.
+
 ### Tables
 
 The signature surface of the product, and the one most of the system is tuned for.
@@ -442,10 +458,17 @@ The signature surface of the product, and the one most of the system is tuned fo
 - Group headers are a hairline-strong rule with a 600-weight ink-strong name and muted totals, not a filled band.
 - Nested issues are indented in 16px steps with a chevron background image, mirrored for RTL.
 - Overdue dates turn danger; closed issues strike through in gray; locked and registered users go gray. Nothing else in a row is coloured.
+- **Row rhythm** is 1.35 line-height on cells. The 1.5 that prose uses cost a row per viewport on a surface whose job is scanning.
+- **Alignment carries meaning, scoped to issue rows.** The shared `table.list td` default stays centred, because every list in the product inherits it. Inside `tr.issue`, categorical columns and the issue id read from the start edge so the eye has a left edge to run down; magnitude columns (hours, totals, numeric and float custom fields) read from the right and keep the physical `right` the Logical-Property Rule reserves for numbers; headers follow their column. Numeric cells take weight 500, which is free — tabular figures drift 0.195% across the 400–700 range.
+- **The status cell encodes twice over.** Open is a filled chip, closed is an outline chip, and both carry a 12px glyph before the label: a dot in a circle for open, a bare check for closed. The dot is deliberately neutral — it has to serve New, In Progress and Feedback equally, not illustrate one of them — and the check goes bare because the closed chip is already an outline, so a second container inside it would be one border too many. Both glyphs are `aria-hidden`; the status name carries the meaning. Priority spends colour and weight only above the default rung. Tracker stays plain muted text: it is filtered on, not triaged on. Three distinct indicators in a row is the ceiling.
 
 ### Badges
 
-Small full-round chips at 11px / weight 500 with 2px/8px padding, sentence case, transparent border, drawing their ground and ink from the state tokens: open takes the blue wash and link ink, closed takes the green wash and success ink, locked and plain counts take `fill-active` and secondary ink, private takes the danger wash and danger ink.
+Small full-round chips at 12px / weight 500 with 2px/8px padding, sentence case, transparent border, drawing their ground and ink from the state tokens: open takes the blue wash and link ink, closed takes the green wash and success ink, locked and plain counts take `fill-active` and secondary ink, private takes the danger wash and danger ink.
+
+### Error pages
+
+`404.html` and `500.html` are standalone documents served without the application stylesheet, so they carry their own copy of the frame, the reading measure, the type and both palettes rather than inheriting anything. They are updated together, and a change to the frame that is not mirrored into them leaves the two most visible failure states looking like a different product.
 
 ### Callouts
 

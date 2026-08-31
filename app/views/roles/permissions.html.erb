@@ -30,7 +30,7 @@
 <% @roles.each do |role| %>
     <%= hidden_field_tag "permissions[#{role.id}][]", '', :id => nil %>
 <% end %>
-<div class="autoscroll">
+<div class="autoscroll" tabindex="0">
 <table class="list permissions">
 <thead>
     <tr>

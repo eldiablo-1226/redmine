@@ -2,7 +2,9 @@
 
 <div id="admin-index">
   <%= render :partial => 'no_data' if @no_configuration_data %>
-  <%= render :partial => 'menu' %>
+  <div id="admin-menu">
+    <%= render_grouped_admin_menu %>
+  </div>
 </div>
 
 <% html_title(l(:label_administration)) -%>

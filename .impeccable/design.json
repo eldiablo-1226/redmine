@@ -284,7 +284,7 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Prose, descriptions, wiki content, form values. Inter with cv05 and ss03 enabled."
+        "purpose": "Prose, descriptions, wiki content, form values. Inter with no stylistic set requested: the shipped 4.001 subsets contain none."
       },
       "dense": {
         "displayName": "Dense",
@@ -314,7 +314,7 @@
           "italic"
         ],
         "delivery": "self-hosted woff2, latin + cyrillic subsets, font-display: swap",
-        "features": "cv05, ss03"
+        "features": "none requested; calt suppressed on identifier columns"
       },
       {
         "family": "Noto Sans",
@@ -481,9 +481,9 @@
       "name": "Status Badges",
       "kind": "chip",
       "refersTo": "badge-status-open",
-      "description": "Full-round 11px chips drawing ground and ink from the state tokens. Sentence case, transparent border.",
-      "html": "<span class=\"ds-badge ds-badge--open\">open</span> <span class=\"ds-badge ds-badge--closed\">closed</span> <span class=\"ds-badge ds-badge--locked\">locked</span> <span class=\"ds-badge ds-badge--private\">Private</span> <span class=\"ds-badge ds-badge--count\">12</span>",
-      "css": ".ds-badge { display: inline-block; font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-weight: 500; font-size: 0.6875rem; line-height: 1.5; padding-block: 2px; padding-inline: 8px; margin-inline: 3px; border: 1px solid transparent; border-radius: var(--nx-r-full, 9999px); letter-spacing: 0.01em; text-decoration: none; user-select: none; } .ds-badge--open { color: var(--nx-link, #0075de); background: var(--nx-primary-soft, #e8f2fd); } .ds-badge--closed { color: var(--nx-success, #1a8a45); background: var(--nx-success-soft, #e6f4ea); } .ds-badge--locked { color: var(--nx-ink-muted, #615d59); background: var(--nx-fill-active, rgba(31,30,28,0.09)); } .ds-badge--private { color: var(--nx-danger, #c1341b); background: var(--nx-danger-soft, #fbeae6); } .ds-badge--count { color: var(--nx-ink-secondary, #37352f); background: var(--nx-fill-active, rgba(31,30,28,0.09)); }"
+      "description": "Full-round 12px chips drawing ground and ink from the state tokens. Sentence case, transparent border.",
+      "html": "<span class=\"ds-badge ds-badge--open\"><svg class=\"ds-badge-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><circle cx=\"8\" cy=\"8\" r=\"6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg><span class=\"ds-badge-label\">open</span></span> <span class=\"ds-badge ds-badge--closed\"><svg class=\"ds-badge-icon\" viewBox=\"0 0 16 16\" aria-hidden=\"true\"><path d=\"M4 8.5l2.5 2.5L12 5.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"/></svg><span class=\"ds-badge-label\">closed</span></span> <span class=\"ds-badge ds-badge--locked\">locked</span> <span class=\"ds-badge ds-badge--private\">Private</span> <span class=\"ds-badge ds-badge--count\">12</span>",
+      "css": ".ds-badge { display: inline-block; font-family: Inter, \"Noto Sans\", -apple-system, sans-serif; font-weight: 500; font-size: 0.75rem; line-height: 1.5; padding-block: 2px; padding-inline: 8px; margin-inline: 3px; border: 1px solid transparent; border-radius: var(--nx-r-full, 9999px); letter-spacing: 0.01em; text-decoration: none; user-select: none; } .ds-badge--open { color: var(--nx-link, #0075de); background: var(--nx-primary-soft, #e8f2fd); } .ds-badge--closed { color: var(--nx-success, #1a8a45); background: transparent; border-color: var(--nx-success, #1a8a45); } .ds-badge--locked { color: var(--nx-ink-muted, #615d59); background: var(--nx-fill-active, rgba(31,30,28,0.09)); } .ds-badge--private { color: var(--nx-danger, #c1341b); background: var(--nx-danger-soft, #fbeae6); } .ds-badge--count { color: var(--nx-ink-secondary, #37352f); background: var(--nx-fill-active, rgba(31,30,28,0.09)); } .ds-badge-icon { inline-size: 12px; block-size: 12px; vertical-align: -2px; } .ds-badge-label { margin-inline-start: 4px; }"
     },
     {
       "name": "Callouts",

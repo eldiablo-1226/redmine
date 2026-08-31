@@ -10,7 +10,7 @@
 
 <% if @annotate %>
 <% colors = Hash.new {|k,v| k[v] = (k.size % 12) } %>
-<div class="autoscroll">
+<div class="autoscroll" tabindex="0">
 <table class="filecontent annotate syntaxhl">
   <tbody>
     <% line_num = 1; previous_revision = nil %>

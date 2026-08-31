@@ -4,9 +4,26 @@
   <meta charset="utf-8" />
   <title>Redmine 500 error</title>
   <style>
-    body {font-family: sans-serif; color: #303030; margin: 20px; line-height: 1.6;}
-    h1 {font-size: 1.5rem;}
-    p {font-size: 0.875rem;}
+    /* Standalone page: it loads no application stylesheet, so the frame, the
+       reading measure and both themes are declared here rather than inherited. */
+    :root { color-scheme: light dark; --ink: #1f1e1c; --muted: #615d59; --canvas: #ffffff; --link: #0075de; }
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #e8e6e3; --muted: #9b9691; --canvas: #191919; --link: #5aa5f0; }
+    }
+    body {
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--canvas);
+      line-height: 1.5;
+      max-inline-size: 1280px;
+      margin-inline: auto;
+      margin-block: 12vh 20px;
+      padding-inline: 28px;
+      box-sizing: border-box;
+    }
+    h1 {font-size: 1.625rem; font-weight: 700; letter-spacing: -0.02em; margin-block: 0 12px;}
+    p {font-size: 0.875rem; max-inline-size: 31rem; color: var(--muted); margin-block: 0 10px;}
+    a {color: var(--link);}
   </style>
 </head>
 <body>
