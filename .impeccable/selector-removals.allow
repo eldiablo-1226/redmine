@@ -1,0 +1,14 @@
+# Selectors this sweep intentionally removes, one per line, exactly as the
+# extractor emits them. Each needs a "#" reason line above it.
+#
+# The blanket reduced-motion override. Replaced by a per-component matrix: it
+# also zeroed hover, focus and selection feedback, none of which move anything.
+*, *::before, *::after
+#
+# The admin-index grid moved from the list to its container, so a plugin's
+# nested child menu stays a list instead of becoming a second grid.
+#admin-index #admin-menu ul
+#
+# Redundant after the contextual-action rules were rewritten for keyboard and
+# coarse-pointer reach; the hover reveal now lives inside the hover media query.
+.mypage-box:hover>.contextual
