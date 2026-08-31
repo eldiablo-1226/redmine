@@ -1506,3 +1506,5 @@ bg:
   reaction_text_x_other_users:
     one: 1 друг
     other: "%{count} други"
+  label_admin_menu_other: Other
+  label_theme_toggle: Toggle dark mode

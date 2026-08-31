@@ -1506,3 +1506,5 @@ ja:
   field_private_by_default: デフォルトでプライベート
   error_issue_status_in_use_by_issues: This status is used by some issues
   error_issue_status_default_for_trackers: This status is used as the default status by some trackers
+  label_admin_menu_other: Other
+  label_theme_toggle: Toggle dark mode

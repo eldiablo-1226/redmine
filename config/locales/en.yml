@@ -696,6 +696,7 @@ en:
   label_my_account: My account
   label_my_projects: My projects
   label_administration: Administration
+  label_admin_menu_other: Other
   label_login: Sign in
   label_logout: Sign out
   label_help: Help
