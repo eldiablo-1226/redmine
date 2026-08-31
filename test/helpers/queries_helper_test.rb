@@ -21,10 +21,30 @@ require_relative '../test_helper'
 
 class QueriesHelperTest < Redmine::HelperTest
   include QueriesHelper
+  include ERB::Util
 
   def test_filters_options_for_select_should_have_a_blank_option
     options = filters_options_for_select(IssueQuery.new)
     assert_select_in options, 'option[value=""]'
+  end
+
+  def test_status_column_should_render_a_glyph_before_the_label
+    # Open and closed differed by hue alone, which disappears in greyscale and
+    # for a colour-blind reader. Shape and symbol restate what the word says.
+    open_status = IssueStatus.new(:name => 'New', :is_closed => false)
+    closed_status = IssueStatus.new(:name => 'Closed', :is_closed => true)
+
+    open_html = column_value(QueryColumn.new(:status), Issue.new, open_status)
+    closed_html = column_value(QueryColumn.new(:status), Issue.new, closed_status)
+
+    assert_select_in open_html, 'span.badge.badge-status-open svg.icon-svg'
+    assert_select_in closed_html, 'span.badge.badge-status-closed svg.icon-svg'
+    assert_match(/<svg[^>]*>.*<\/svg>\s*<span class="icon-label">New<\/span>/m, open_html)
+  end
+
+  def test_status_column_should_keep_the_label_when_the_value_is_not_a_status
+    html = column_value(QueryColumn.new(:status), Issue.new, 'Plain text')
+    assert_equal 'Plain text', html
   end
 
   def test_filters_options_for_select_should_not_group_regular_filters
